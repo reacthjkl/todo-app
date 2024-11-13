@@ -47,10 +47,12 @@ export class TodoManagementComponent {
     }
   }
 
-  public delete(id: number) {
-    this.todos = this.todos.filter((t) => t.id !== id); //remove todo from the local array
+  public delete(todo: Todo) {
+    this.todos = this.todos.filter((t) => t.id !== todo.id); //remove todo from the local array
 
-    this.todoSvc.delete(id); //send api request through service
+    if (todo.id) {
+      this.todoSvc.delete(todo.id); //send api request through service
+    }
 
     this.sort();
   }

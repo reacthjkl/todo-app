@@ -16,7 +16,7 @@ export class TodoListComponent {
 
   @Output() markDoneEvent = new EventEmitter<Todo>();
   @Output() markNotDoneEvent = new EventEmitter<Todo>();
-  @Output() deleteEvent = new EventEmitter<number>();
+  @Output() deleteEvent = new EventEmitter<Todo>();
   @Output() renameEvent = new EventEmitter<Todo>();
 
   faFaceGrinBeamSweat = faFaceGrinBeamSweat; //logo for "all done"-message

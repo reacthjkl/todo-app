@@ -5,7 +5,7 @@
   <app-list-item
     (markDoneEvent)="markDoneEvent.emit(todo)"
     (markNotDoneEvent)="markNotDoneEvent.emit(todo)"
-    (deleteEvent)="deleteEvent.emit(todo.id)"
+    (deleteEvent)="deleteEvent.emit(todo)"
     (renameEvent)="renameEvent.emit(todo)"
     [todo]="todo"
   ></app-list-item>
