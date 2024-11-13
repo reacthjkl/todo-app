@@ -16,6 +16,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 export class TodoManagementComponent {
   public todos: Todo[] = []; //content list
 
+  public notDoneTodos: Todo[] = []; //content list
+  public doneTodos: Todo[] = []; //content list
+
   constructor(
     private todoSvc: TodoService, // interaction with db
     private idGeneratorSvc: IdGeneratorService
@@ -31,8 +34,8 @@ export class TodoManagementComponent {
   }
 
   private sort() {
-    //sorts todos by done-status: done todos at the bottom
-    this.todos = this.todos.sort((a, b) => Number(a.done) - Number(b.done));
+    this.notDoneTodos = this.todos.filter((t) => t.done === false);
+    this.doneTodos = this.todos.filter((t) => t.done === true);
   }
 
   public add(todo: Todo) {
@@ -43,6 +46,8 @@ export class TodoManagementComponent {
       this.todos.unshift(todo); //add newly created todo to local array
 
       this.todoSvc.add(todo); //send api request through service
+
+      this.sort();
     }
   }
 
@@ -50,6 +55,8 @@ export class TodoManagementComponent {
     this.todos = this.todos.filter((t) => t.id !== id); //remove todo from the local array
 
     this.todoSvc.delete(id); //send api request through service
+
+    this.sort();
   }
 
   public update(todo: Todo) {
@@ -61,6 +68,6 @@ export class TodoManagementComponent {
 
     this.update(todo);
 
-    this.sort(); //move done todos to the bottom
+    this.sort();
   }
 }

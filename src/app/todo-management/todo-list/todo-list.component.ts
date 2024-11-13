@@ -1,9 +1,8 @@
-import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
-import { TodoService } from '../../shared/services/todo.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faFaceGrinBeamSweat } from '@fortawesome/free-solid-svg-icons';
 import { Todo } from '../../shared/models/todo';
 import { ListItemComponent } from './list-item/list-item.component';
-import { faFaceGrinBeamSweat } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class TodoListComponent {
   @Input({ required: true }) todos!: Todo[]; //list content
+  @Input() showPlaceholder: boolean = true; //list content
 
   @Output() markDoneEvent = new EventEmitter<Todo>();
   @Output() deleteEvent = new EventEmitter<number>();
