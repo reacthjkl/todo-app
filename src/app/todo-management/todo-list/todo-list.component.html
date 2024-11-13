@@ -4,12 +4,13 @@
 <div class="row mb-2">
   <app-list-item
     (markDoneEvent)="markDoneEvent.emit(todo)"
+    (markNotDoneEvent)="markNotDoneEvent.emit(todo)"
     (deleteEvent)="deleteEvent.emit(todo.id)"
     (renameEvent)="renameEvent.emit(todo)"
     [todo]="todo"
   ></app-list-item>
 </div>
-} }@else if(showPlaceholder) {
+} }@else{
 <!--"all done"-message-->
 <div
   style="height: 100px"

@@ -28,6 +28,15 @@
           <fa-icon [icon]="faCheck"></fa-icon>
         </button>
       </div>
+      }@else {
+      <div class="col-auto">
+        <button
+          class="btn btn-outline-secondary"
+          (click)="markNotDoneEvent.emit()"
+        >
+          <fa-icon [icon]="faRotateRight"></fa-icon>
+        </button>
+      </div>
       }
 
       <!--Delete button-->

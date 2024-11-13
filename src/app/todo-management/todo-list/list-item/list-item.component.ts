@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Todo } from '../../../shared/models/todo';
-import {
-  FaIconComponent,
-  FontAwesomeModule,
-} from '@fortawesome/angular-fontawesome';
-import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faCheck,
+  faRotateRight,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+import { Todo } from '../../../shared/models/todo';
 
 @Component({
   selector: 'app-list-item',
@@ -18,11 +19,13 @@ export class ListItemComponent {
   @Input({ required: true }) todo!: Todo; //data to display
 
   @Output() markDoneEvent = new EventEmitter();
+  @Output() markNotDoneEvent = new EventEmitter();
   @Output() deleteEvent = new EventEmitter();
   @Output() renameEvent = new EventEmitter();
 
   faCheck = faCheck;
   faTrash = faTrash;
+  faRotateRight = faRotateRight;
 
   public rename(newName: string, event: Event): void {
     this.renameEvent.emit(newName);

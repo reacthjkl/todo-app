@@ -13,9 +13,9 @@ import { ListItemComponent } from './list-item/list-item.component';
 })
 export class TodoListComponent {
   @Input({ required: true }) todos!: Todo[]; //list content
-  @Input() showPlaceholder: boolean = true; //list content
 
   @Output() markDoneEvent = new EventEmitter<Todo>();
+  @Output() markNotDoneEvent = new EventEmitter<Todo>();
   @Output() deleteEvent = new EventEmitter<number>();
   @Output() renameEvent = new EventEmitter<Todo>();
 

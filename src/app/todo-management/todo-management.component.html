@@ -6,21 +6,10 @@
 <!--List of not done todos-->
 <div class="row">
   <app-todo-list
-    [todos]="notDoneTodos"
+    [todos]="todos"
     (deleteEvent)="delete($event)"
-    (markDoneEvent)="done($event)"
+    (markDoneEvent)="setDoneStatus($event, true)"
+    (markNotDoneEvent)="setDoneStatus($event, false)"
     (renameEvent)="update($event)"
   ></app-todo-list>
 </div>
-
-<!--List of done todos-->
-@if (doneTodos.length > 0) {
-<hr />
-<div class="row">
-  <app-todo-list
-    [todos]="doneTodos"
-    [showPlaceholder]="false"
-    (deleteEvent)="delete($event)"
-  ></app-todo-list>
-</div>
-}
