@@ -1,0 +1,41 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <div class="row">
+      <!--Task description-->
+      <div class="col align-content-center">
+        @if (!todo.done) {
+        <!--Task update if todo is not done yet-->
+        <div class="input-group">
+          <input
+            #renameForm
+            type="text"
+            [(ngModel)]="todo.task"
+            class="form-control border-0"
+            placeholder="Aufgabe"
+            (keydown.enter)="rename(renameForm.value, $event)"
+          />
+        </div>
+        }@else {
+        <div class="text-decoration-line-through text-secondary">
+          {{ todo.task }}
+        </div>
+        }
+      </div>
+      <!--Mark as done if todo is not done yet-->
+      @if (!todo.done) {
+      <div class="col-auto">
+        <button class="btn btn-outline-primary" (click)="markDoneEvent.emit()">
+          <fa-icon [icon]="faCheck"></fa-icon>
+        </button>
+      </div>
+      }
+
+      <!--Delete button-->
+      <div class="col-auto">
+        <button class="btn btn-outline-danger" (click)="deleteEvent.emit()">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

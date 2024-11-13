@@ -1,0 +1,21 @@
+@if (todos.length > 0) {
+<!--list-->
+@for (todo of todos; track $index) {
+<div class="row mb-2">
+  <app-list-item
+    (markDoneEvent)="markDoneEvent.emit(todo)"
+    (deleteEvent)="deleteEvent.emit(todo.id)"
+    (renameEvent)="renameEvent.emit(todo)"
+    [todo]="todo"
+  ></app-list-item>
+</div>
+} }@else {
+<!--"all done"-message-->
+<div
+  style="height: 100px"
+  class="align-content-center text-secondary fs-1 text-center"
+>
+  Alles geschafft!
+  <fa-icon [icon]="faFaceGrinBeamSweat"></fa-icon>
+</div>
+}

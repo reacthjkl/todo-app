@@ -1,0 +1,14 @@
+<!--Insert component to create new todos-->
+<div class="row mb-4">
+  <app-insert (inserted)="add($event)"></app-insert>
+</div>
+
+<!--List of existing todos-->
+<div class="row">
+  <app-todo-list
+    [todos]="todos"
+    (deleteEvent)="delete($event)"
+    (markDoneEvent)="done($event)"
+    (renameEvent)="update($event)"
+  ></app-todo-list>
+</div>

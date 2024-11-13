@@ -1,0 +1,24 @@
+<div class="row">
+  <!--Input-->
+  <div class="col">
+    <div class="input-group">
+      <input
+        #taskInput
+        type="text"
+        class="form-control"
+        placeholder="Geben Sie eine Aufgabe ein"
+        (keydown.enter)="submit(taskInput.value); taskInput.value = ''"
+      />
+    </div>
+  </div>
+  <!--Add button-->
+  <div class="col-auto">
+    <button
+      class="btn btn-primary btn"
+      (click)="submit(taskInput.value); taskInput.value = ''"
+    >
+      <fa-icon [icon]="faPlus"></fa-icon>
+      Hinzufügen
+    </button>
+  </div>
+</div>
