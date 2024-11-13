@@ -7,13 +7,14 @@
         type="text"
         class="form-control"
         placeholder="Geben Sie eine Aufgabe ein"
-        (keydown.enter)="submit(taskInput.value); taskInput.value = ''"
+        (keydown.enter)="submitButton.click()"
       />
     </div>
   </div>
   <!--Add button-->
   <div class="col-auto">
     <button
+      #submitButton
       class="btn btn-primary btn"
       (click)="submit(taskInput.value); taskInput.value = ''"
     >
